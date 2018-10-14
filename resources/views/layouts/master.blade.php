@@ -54,18 +54,24 @@
     	<nav class="menu-desktop menu-sticky">
     
             <ul class="tada-menu">
-                     <li><a href="#" class="active">HOME <i class="icon-arrow-down8"></i></a>
+                     <li><a href="#" class="active">NAME<i class="icon-arrow-down8"></i></a>
                         <ul class="submenu">
-                        	<li><a href="home-1-column.html">Home 1 Column</a></li>
+                            @foreach ($categories as $row)
+                                <li>{{$row->name}}</li>
+                            @endforeach
+                        	{{-- <li><a href="home-1-column.html">Home 1 Column</a></li>
                             <li><a href="index.html" class="active">Home 1 Column + Sidebar</a></li>                            
                             <li><a href="home-2-columns-with-sidebar.html">Home 2 Columns + Sidebar</a></li>
                             <li><a href="home-2-columns.html">Home 2 Columns</a></li>
-                            <li><a href="home-3-columns.html">Home 3 Columns</a></li>                                                                      
+                            <li><a href="home-3-columns.html">Home 3 Columns</a></li> --}}                                                                      
                         </ul>
                     </li>
-                    <li><a href="#">FEATURES <i class="icon-arrow-down8"></i></a>
+                    <li><a href="#">THUMBNAIL <i class="icon-arrow-down8"></i></a>
                         <ul class="submenu">
-                            <li><a href="page.html">Page</a></li>
+                            @foreach ($categories as $row)
+                                <li>{{$row->thumbnail}}</li>
+                            @endforeach
+                            {{-- <li><a href="page.html">Page</a></li>
                             <li><a href="page-with-right-sidebar.html">Page + Right Sidebar</a></li>
                             <li><a href="page-with-left-sidebar.html">Page + Left Sidebar</a></li>                            
                             <li><a href="post.html">Post Full Width</a></li>
@@ -80,19 +86,28 @@
                                     <li><a href="#">Item 3</a></li>
                                     <li><a href="#">Item 4</a></li>
                                 </ul>
-                            </li>                                                                                            
+                            </li>                                                                              --}}               
                         </ul>                
                     </li>                                     
-                    <li><a href="#">BLOG <i class="icon-arrow-down8"></i></a>
+                    <li><a href="#">SLUG <i class="icon-arrow-down8"></i></a>
                         <ul class="submenu">
-                        	<li><a href="blog-1-column.html">Blog 1 Column</a></li>
+                            @foreach ($categories as $row)
+                                <li>{{$row->slug}}</li>
+                            @endforeach
+                        	{{-- <li><a href="blog-1-column.html">Blog 1 Column</a></li>
                             <li><a href="blog-1-column-with-sidebar.html">Blog + Sidebar</a></li>                            
                             <li><a href="blog-2-columns-with-sidebar.html">Blog 2 Columns + Sidebar</a></li>
                             <li><a href="blog-2-columns.html">Blog 2 Columns</a></li>
-                            <li><a href="blog-3-columns.html">Blog 3 Columns</a></li>                                                                      
+                            <li><a href="blog-3-columns.html">Blog 3 Columns</a></li>      --}}                                                                 
                         </ul>                
                     </li> 
-                    <li><a href="about-us.html">ABOUT US</a></li>
+                    <li><a href="about-us.html">DESCRIPTION<i class="icon-arrow-down8"></i></a>
+                        <ul class="submenu">
+                            @foreach ($categories as $row)
+                                <li>{{$row->description}}</li>
+                            @endforeach                                                             
+                        </ul> 
+                    </li>
                     <li><a href="contact.html">CONTACT</a></li>
             </ul>
         
@@ -105,7 +120,7 @@
             <div class="close-menu-responsive">|</div>              
             <div class="menu-responsive">   
                 <ul class="tada-menu">
-                     <li><a href="#" class="active">HOME <i class="icon-arrow-down8"></i></a>
+                    <li><a href="#" class="active">HOME <i class="icon-arrow-down8"></i></a>
                         <ul class="submenu">
                         	<li><a href="home-1-column.html">Home 1 Column</a></li>
                             <li><a href="index.html" class="active">Home 1 Column + Sidebar</a></li>                            
@@ -192,7 +207,7 @@
                     </div>                
                 </li>
                 <li>
-                	<img src="img/image-slider-4.jpg" alt="image slider 4">
+                	<img src="{{ asset('blog_assets/img/image-slider-4.jpg')}}" alt="image slider 4">
                 	<div class="pattern"></div>
                     <div class="tada-text-container">
                     	<h1>AENEAN AC DIAM</h1>
