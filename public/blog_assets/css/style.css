@@ -336,7 +336,6 @@ a:hover {
 /*------------------------------------------------------------------
 [2. Preloader / #preloader]
 */
-
 #preloader-container {
 	position:fixed;
 	width:100%;
@@ -817,7 +816,6 @@ article {
 .no-slider .tada-search {
 	border-radius:0 0 10px 10px;
 }
-
 
 /*------------------------------------------------------------------
 [4.1. Blog 1 Column / .blog-1-column]

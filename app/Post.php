@@ -17,4 +17,7 @@ class Post extends Model
     		'category_id',
     		'view_count'
     	];
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
