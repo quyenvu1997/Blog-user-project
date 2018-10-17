@@ -31,3 +31,6 @@ Route::get('/users/{id}', function($id){
 // });
 Route::get('search','HomeController@search');
 Route::get('/posts/{slug}','HomeController@show');
+Route::get('/contact',function(){
+	return view('contact');
+});

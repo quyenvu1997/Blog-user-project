@@ -54,17 +54,17 @@
     	<nav class="menu-desktop menu-sticky">
     
             <ul class="tada-menu">
-                     <li><a href="#" class="active">HOME<i class="icon-arrow-down8"></i></a>
-                        <ul class="submenu">
-                           {{--  @foreach ($categories as $row)
+                     <li><a href="{{ asset('/') }}" class="active">HOME{{-- <i class="icon-arrow-down8"> --}}</i></a>
+                        {{-- <ul class="submenu">
+                            @foreach ($categories as $row)
                                 <li>{{$row->name}}</li>
-                            @endforeach --}}
+                            @endforeach
                         	<li><a href="home-1-column.html">Home 1 Column</a></li>
                             <li><a href="index.html" class="active">Home 1 Column + Sidebar</a></li>                            
                             <li><a href="home-2-columns-with-sidebar.html">Home 2 Columns + Sidebar</a></li>
                             <li><a href="home-2-columns.html">Home 2 Columns</a></li>
                             <li><a href="home-3-columns.html">Home 3 Columns</a></li>                                                                      
-                        </ul>
+                        </ul> --}}
                     </li>
                     <li><a href="#">FEATURES <i class="icon-arrow-down8"></i></a>
                         <ul class="submenu">
@@ -108,7 +108,7 @@
                             @endforeach   --}}                                                           
                         </ul> 
                     </li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="{{ asset('/contact') }}">CONTACT</a></li>
             </ul>
         
         </nav>
