@@ -167,9 +167,9 @@
         
         <!-- SEARCH -->
         <div class="tada-search">
-			<form>
+			<form action="/search" method="GET">
             	<div class="form-group-search">
-              		<input type="search" class="search-field" placeholder="Search and hit enter...">
+              		<input type="search" class="search-field" placeholder="Search and hit enter..." name="search">
               		<button type="submit" class="search-btn"><i class="icon-search4"></i></button>
             	</div>
           	</form>

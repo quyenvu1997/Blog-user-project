@@ -19,7 +19,7 @@
 		            </div>
 		            <div class="post-text">
 		            	<span class="date">{{ $post->created_at }}</span>
-		                <h2><a href="\posts\{{$post->slug}}">{{ $post->title }}</a></h2>
+		                <h2><a href="\posts\{{$post->id}}">{{ $post->title }}</a></h2>
 		                <p class="text">
 		                	{!! $post->description !!}
                             <a href="\posts\{{$post->slug}}"><i class="icon-arrow-right2"></i></a>
@@ -47,7 +47,7 @@
     		@endif
         	
         	@if ($posts->hasMorePages())
-        		<a href="{{$posts->nextPageUrl()}}" class="next">Next Posts <i class="icon-arrow-right8"></i></a>
+        		<a href="{{$posts->nextPageUrl()}}&search={{$q}}" class="next">Next Posts <i class="icon-arrow-right8"></i></a>
         	@endif
             {{-- <a href="{{$posts->nextPageUrl()}}" class="next">Next Posts <i class="icon-arrow-right8"></i></a> --}}
             <div class="clearfix"></div>
