@@ -14,14 +14,12 @@
                 </div>
                 <div class="post-text">
                 	<span class="date">07 Jun 2016</span>
-                    <h2><a href="\posts\{{$post->id}}">MAECENAS CONSECTETUR</a></h2>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.
-									Nunc maximus arcu sit amet accumsan imperdiet. Aliquam elementum efficitur ipsum nec blandit. 
-                                    Pellentesque posuere vitae metus sed auctor. Nullam accumsan fringilla ligula non pellentesque.
-                                    <a href="\posts\{{$post->id}}"><i class="icon-arrow-right2"></i></a></p>                                 
+                    <h2><a href="\posts\{{$post->slug}}">{{$post->title}}</a></h2>
+                    <p class="text">{{$post->description}}
+                                    <a href="\posts\{{$post->slug}}"><i class="icon-arrow-right2"></i></a></p>                                 
                 </div>
                 <div class="post-info">
-                	<div class="post-by">Post By <a href="#">{{$post->user->name}}</a></div>
+                	<div class="post-by">Post By <a href="{{ asset('users') }}\{{$post->user->id}}">{{$post->user->name}}</a></div>
                 </div>
             </article>
         

@@ -68,10 +68,12 @@
                     </li>
                     <li><a href="#">FEATURES <i class="icon-arrow-down8"></i></a>
                         <ul class="submenu">
-                            {{-- @foreach ($categories as $row)
-                                <li>{{$row->thumbnail}}</li>
-                            @endforeach --}}
-                            <li><a href="page.html">Page</a></li>
+                            @foreach ($categories as $row)
+                                {{-- <li><a href="categories/{{$row->name}}" title="">{{$row->name}}</a></li> --}}
+                                <li><a href="{{ asset('categories/') }}/{{$row->name}}" title="">{{$row->name}}</a></li>
+                                <li></li>
+                            @endforeach
+                            {{-- <li><a href="page.html">Page</a></li>
                             <li><a href="page-with-right-sidebar.html">Page + Right Sidebar</a></li>
                             <li><a href="page-with-left-sidebar.html">Page + Left Sidebar</a></li>                            
                             <li><a href="post.html">Post Full Width</a></li>
@@ -86,7 +88,7 @@
                                     <li><a href="#">Item 3</a></li>
                                     <li><a href="#">Item 4</a></li>
                                 </ul>
-                            </li>                                                                                            
+                            </li>    --}}                                                                                         
                         </ul>                
                     </li>                                     
                     <li><a href="#">BLOG <i class="icon-arrow-down8"></i></a>

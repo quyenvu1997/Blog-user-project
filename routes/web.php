@@ -34,3 +34,8 @@ Route::get('/posts/{slug}','HomeController@show');
 Route::get('/contact',function(){
 	return view('contact');
 });
+Route::get('categories/{name}',function($name){
+	$category=\App\Category::Where('name',$name)->first();
+	$posts=$category->posts;
+	return view('posts',['posts' => $posts]);
+});
