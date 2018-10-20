@@ -11,10 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@index');
 
 // Route::get('/', function () {
 // 	$posts = \App\Post::simplePaginate(5);
@@ -25,10 +22,6 @@ Route::get('/users/{id}', function($id){
 	$posts=$user->posts;
 	return view('posts',['posts' => $posts]);
 });
-// Route::get('/posts/{id}', function($id){
-// 	$post=\App\Post::find($id);
-// 	return view('details',['posts' => $post]);
-// });
 Route::get('search','HomeController@search');
 Route::get('/posts/{slug}','HomeController@show');
 Route::get('/contact',function(){
@@ -38,4 +31,14 @@ Route::get('categories/{name}',function($name){
 	$category=\App\Category::Where('name',$name)->first();
 	$posts=$category->posts;
 	return view('posts',['posts' => $posts]);
+});
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('admin')->group(function(){
+	Auth::routes(['verify' => true,'register'=>true]);
+	Route::middleware(['auth','verified'])->group(function(){
+		Route::get('/home', 'HomeController@index')->name('home');
+	});
 });
