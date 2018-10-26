@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if(!\App::runningInConsole()){
             View::share('categories', Category::all());
+            View::share('posts',Post::all());
         }
     }
 

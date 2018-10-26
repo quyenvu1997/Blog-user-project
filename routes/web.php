@@ -11,12 +11,7 @@
 |
 */
 
-//Route::get('/', 'HomeController@index');
-
-// Route::get('/', function () {
-// 	$posts = \App\Post::simplePaginate(5);
-//     return view('index',['posts'=>$posts]);
-//  });
+Route::get('/', 'HomeController@index');
 Route::get('/users/{id}', function($id){
 	$user=\App\User::find($id);
 	$posts=$user->posts;
@@ -24,9 +19,7 @@ Route::get('/users/{id}', function($id){
 });
 Route::get('search','HomeController@search');
 Route::get('/posts/{slug}','HomeController@show');
-Route::get('/contact',function(){
-	return view('contact');
-});
+Route::get('/contact','HomeController@contact');
 Route::get('categories/{name}',function($name){
 	$category=\App\Category::Where('name',$name)->first();
 	$posts=$category->posts;
@@ -34,11 +27,19 @@ Route::get('categories/{name}',function($name){
 });
 
 //Auth::routes();
-
+//['verify' => true,'register'=>true]
+//,'verified'
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function(){
-	Auth::routes(['verify' => true,'register'=>true]);
-	Route::middleware(['auth','verified'])->group(function(){
-		Route::get('/home', 'HomeController@index')->name('home');
+	Auth::routes();
+	Route::middleware(['auth'])->group(function(){
+		Route::get('/dashboard', 'HomeController@dashboard');
+		Route::get('/listposts','PostController@getdata')->name('posts');
+		Route::get('/listcategories','CategoryController@getdata')->name('categories');
+		Route::get('/listtags','TagController@getdata')->name('tags');
+		Route::resource('/posts','PostController');
+		Route::resource('/tags','TagController');
+		Route::resource('/categories','CategoryController');
 	});
+
 });
