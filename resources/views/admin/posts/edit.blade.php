@@ -48,7 +48,9 @@
 					<div class="bg-info text-white text-center font-weight-bold rounded-top" style="font-size: 30px;">
 						Tag
 					</div>
-					<input type="text" name="tag" class="form-control" placeholder="">	
+					<input type="text" name="tag" class="form-control" placeholder="" value="{{@foreach ($category->tags as $tag)
+						$tag->name,}}"
+					@endforeach>	
 				</div>
 			</div>
 		</div>

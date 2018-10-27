@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container-fluit">
-	<form action="/admin/post" method="POST" class="" role="form">
+	<form action="/admin/posts" method="POST" class="" role="form" enctype="multipart/form-data">
 		@csrf
 		<div class="row">
 			<div class="col-8">
@@ -40,12 +40,12 @@
 						<canvas id= "can1"  class="border border-muted w-100" style="height: 228px;">
 						</canvas>
 						<p>
-							<input type = "file" multiple ="false" accept = "image/*" id = "finput" onchange = "Upload()" name="thumbnail">
+							<input type = "file" multiple ="false" accept = "image/*" id = "finput" onchange = "Upload()" name="image">
 						</p>      
 					</div>	
 				</div><br>
 				<div class="rounded border border-muted">
-					<div class="bg-info text-white text-center font-weight-bold rounded-top" style="font-size: 30px;">
+					<div class="bg-info text-white text-center font-weight-bold rounded-top" style="font-size: 30px;" placeholder="các tag cách nhau bởi dấu phẩy">
 						Tag
 					</div>
 					<input type="text" name="tag" class="form-control" placeholder="">	

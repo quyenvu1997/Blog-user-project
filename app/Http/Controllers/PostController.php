@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Tag;
+use App\PostTag;
 use Yajra\Datatables\Datatables;
 class PostController extends Controller
 {
@@ -35,7 +37,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post=Post::store($request->all());
+        $tags=explode(",",$request->tag);
+        $tagsid=array();
+        $listtag=Tag::all();
+        foreach ($tags as $tag) {
+            $check=Tag::where('name','like',$tag)->first();
+            if (isset($check)) {
+                $t=$check;
+            }else{
+                $t=Tag::create([
+                    'name' =>$tag,
+                    'slug' => implode("-", explode(" ",  $tag))
+                ]);
+            }
+            PostTag::create([
+                'post_id' => $post->id,
+                'tag_id' => $t->id,
+            ]);
+        }
+        return view('admin.posts.list');
     }
 
     /**
